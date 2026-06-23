@@ -1,0 +1,62 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+@layer base {
+  :root {
+    --bg: #FBFAF7;
+    --surface: #FFFFFF;
+    --text: #1A1A1A;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+    --brand-green: #006400;
+    --brand-green-soft: #0a7a3a;
+    --accent-red: #C8102E;
+    --gold: #F2C94C;
+  }
+  .dark {
+    --bg: #0F1410;
+    --surface: #1A211C;
+    --text: #F5F5F4;
+    --muted: #9CA3AF;
+    --border: #2D3730;
+    --brand-green: #008000; /* Slightly lighter for dark mode visibility */
+    --brand-green-soft: #0c9a4a;
+  }
+  body {
+    @apply bg-background text-text font-sans antialiased transition-colors duration-300;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+@layer utilities {
+  /* Subtle geometric pattern inspired by Kenyan kitenge/Maasai motifs */
+  .bg-kenya-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20L20 0ZM20 10L10 20L20 30L30 20L20 10Z' fill='currentColor' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+  .dark .bg-kenya-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20L20 0ZM20 10L10 20L20 30L30 20L20 10Z' fill='currentColor' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+  /* Glassmorphism Cards */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-soft;
+  }
+  .dark .glass-card {
+    @apply bg-[#1A211C]/70 backdrop-blur-md border border-white/5 shadow-soft-lg;
+  }
+  /* Hide scrollbar for clean UI */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
